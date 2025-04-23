@@ -1,0 +1,4 @@
+# Ignora arquivos que não têm ponto (sem extensão)
+*
+!*/
+!*.*
