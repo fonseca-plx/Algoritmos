@@ -1,0 +1,1 @@
+// resolve com pitágoras a² = b² + c²
