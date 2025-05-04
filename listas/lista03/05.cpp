@@ -27,7 +27,7 @@ int conta_primos(int a[], int n, int primos[]) {
 int main() {
     int n;
     std::cin >> n;
-    int a[n], primos[n]; // n corresponde a maior posição possível para primos
+    int a[n], primos[n]; // n corresponde a maior quantidade possível de primos
     for (int i = 0; i < n; i++) {
         std::cin >> a[i];
     }
