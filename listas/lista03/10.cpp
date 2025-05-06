@@ -3,14 +3,18 @@
 int distintos(int a[], int n, int b[]) {
     b[0] = a[0]; // primeiro valor distinto
     int count = 1;
+    bool busca_iguais;
     for (int i = 1; i < n; i++) {
+        busca_iguais = false;
         for (int j = 0; j < count; j++) {
             if (a[i] == b[j]) {
+                busca_iguais = true;
                 break;
             }
+        }
+        if (!busca_iguais) {
             b[count] = a[i];
             count++;
-            break;
         }
     }
     return count;
