@@ -22,23 +22,35 @@ int main() {
         return 1;
     }
 
+    std::ofstream outfile("saida_04.txt");
+    if (!outfile.is_open()) {
+        std::cerr << "Error creating output file: saida_04.txt" << std::endl;
+        return 1;
+    }
+
     long long n;
     while (infile >> n) {
         auto beg = std::chrono::high_resolution_clock::now();
         bool p = prime(n);
         auto end = std::chrono::high_resolution_clock::now();
 
+        auto dur = end - beg;
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(dur);
+
         if (p)
             std::cout << n << " is prime" << std::endl;
         else
             std::cout << n << " is not prime" << std::endl;
 
-        auto dur = end - beg;
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(dur);
         std::cerr << n << " processing time: " << duration.count()
                   << " microseconds(s)" << std::endl;
+
+        outfile << duration.count() << std::endl;
     }
 
     infile.close();
+    outfile.close();
+    std::cout << "Processing times saved to: saida_04.txt" << std::endl;
+
     return 0;
 }
