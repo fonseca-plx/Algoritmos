@@ -5,10 +5,11 @@
 
 bool prime(long long n) {
     int qty_divs = 0;
-    for (long long d=1; d <= n; ++d) {
+    for (long long d=1; d <= n/2; ++d) {
         if (n%d==0) qty_divs++;
     }
-    return qty_divs==2;
+    if (qty_divs==1) return true;
+    else return false;
 }
 
 int main() {

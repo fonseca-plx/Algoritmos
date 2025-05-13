@@ -4,11 +4,14 @@
 #include <string>
 
 bool prime(long long n) {
-    int qty_divs = 0;
-    for (long long d=1; d <= n; ++d) {
-        if (n%d==0) qty_divs++;
+    if (n == 1) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+
+    for (long long d=3; d <= n/2; d += 2) {
+        if (n%d==0) return false;
     }
-    return qty_divs==2;
+    return true;
 }
 
 int main() {
