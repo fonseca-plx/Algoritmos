@@ -1,8 +1,8 @@
 #include <iostream>
 
-int mdc(int a, int b) {
+long long mdc(long long a, long long b) {
     while (b != 0) {
-        int temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
@@ -10,7 +10,7 @@ int mdc(int a, int b) {
 }
 
 int main() {
-    int a, b;
+    long long a, b;
     std::cin >> a >> b;
 
     std::cout << mdc(a, b) << std::endl;
